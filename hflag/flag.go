@@ -4,7 +4,7 @@ package hflag
 
 import (
 	"fmt"
-	"github.com/hpifu/go-kit/hstr"
+	"github.com/yodeng/go-kit/hstr"
 	"net"
 	"time"
 )

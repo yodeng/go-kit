@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/hpifu/go-kit/hflag"
+	"github.com/yodeng/go-kit/hflag"
 	"time"
 )
 

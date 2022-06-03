@@ -33,7 +33,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/hpifu/go-kit/hflag"
+	"github.com/yodeng/go-kit/hflag"
 )
 
 type MySubFlags struct {
@@ -91,7 +91,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/hpifu/go-kit/hflag"
+	"github.com/yodeng/go-kit/hflag"
 )
 
 func main() {
@@ -132,7 +132,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/hpifu/go-kit/hflag"
+	"github.com/yodeng/go-kit/hflag"
 	"time"
 )
 
@@ -223,5 +223,5 @@ options:
 
 ## 链接
 
-- 项目地址: <https://github.com/hpifu/go-kit/tree/master/hflag>
-- 例子: <https://github.com/hpifu/go-kit/tree/master/example>
+- 项目地址: <https://github.com/yodeng/go-kit/tree/master/hflag>
+- 例子: <https://github.com/yodeng/go-kit/tree/master/example>

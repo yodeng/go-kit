@@ -36,4 +36,4 @@ So(ms.Sub2.Float, ShouldEqual, float32(123.456))
 
 ## 链接
 
-- `hstring`: <https://github.com/hpifu/go-kit/tree/master/hstring>
+- `hstring`: <https://github.com/yodeng/go-kit/tree/master/hstring>

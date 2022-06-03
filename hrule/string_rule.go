@@ -2,7 +2,7 @@ package hrule
 
 import (
 	"fmt"
-	"github.com/hpifu/go-kit/hstr"
+	"github.com/yodeng/go-kit/hstr"
 	"regexp"
 	"strconv"
 	"strings"

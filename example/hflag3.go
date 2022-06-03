@@ -5,7 +5,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/hpifu/go-kit/hflag"
+	"github.com/yodeng/go-kit/hflag"
 )
 
 type MySubFlags struct {

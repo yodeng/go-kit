@@ -11,7 +11,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/hpifu/go-kit/cpool"
+	"github.com/yodeng/go-kit/cpool"
 )
 
 type HttpClient struct {

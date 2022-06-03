@@ -3,11 +3,11 @@ package hflag
 import (
 	"bytes"
 	"fmt"
-	"github.com/hpifu/go-kit/hstr"
+	"github.com/yodeng/go-kit/hstr"
 	"net"
 	"path"
 	"reflect"
-	"sort"
+	_ "sort"
 	"strconv"
 	"strings"
 	"time"
@@ -42,6 +42,7 @@ type FlagSet struct {
 	flagNames       []string
 	args            []string
 	parsed          bool
+	desc            string
 }
 
 func NewFlagSet(name string) *FlagSet {
@@ -54,10 +55,12 @@ func NewFlagSet(name string) *FlagSet {
 }
 
 func (f *FlagSet) Parse(args []string) error {
+	nargs := false
 	for i := 0; i < len(args); i++ {
 		arg := args[i]
-		if !strings.HasPrefix(arg, "-") {
+		if !strings.HasPrefix(arg, "-") && nargs {
 			f.args = append(f.args, arg)
+			nargs = false
 			continue
 		}
 		option := arg[1:]
@@ -81,7 +84,26 @@ func (f *FlagSet) Parse(args []string) error {
 			if flag == nil {
 				return fmt.Errorf("unknow flag [%v]", name)
 			}
-			if flag.Type != "bool" { // 选项不是 bool，后面必有一个值
+			if flag.Type == "[]string" {
+				v := make([]string, 0)
+				j := 1
+				for {
+					if i+j > len(args) {
+						return fmt.Errorf("miss argument for nonboolean option [%v]", name)
+					}
+					if i+j == len(args) || strings.HasPrefix(args[i+j], "-") {
+						nargs = true
+						break
+					}
+					v = append(v, args[i+j])
+					j++
+				}
+				val := strings.Join(v, ",")
+				if err := flag.Set(val); err != nil {
+					return fmt.Errorf("set failed. name: [%v], val: [%v], type: [%v], err: [%v]", name, val, flag.Type, err)
+				}
+				i += j - 1
+			} else if flag.Type != "bool" {
 				if i+1 >= len(args) {
 					return fmt.Errorf("miss argument for nonboolean option [%v]", name)
 				}
@@ -301,7 +323,7 @@ func (f *FlagSet) Usage() string {
 		})
 	}
 
-	sort.Strings(f.flagNames)
+	//sort.Strings(f.flagNames)
 	for _, name := range f.flagNames {
 		flag := f.nameToFlag[name]
 		defaultValue := flag.Type
@@ -357,6 +379,10 @@ func (f *FlagSet) Usage() string {
 		}
 	}
 	buffer.WriteString("\n")
+	if len(f.desc) > 0 {
+		buffer.WriteString("\n")
+		buffer.WriteString(f.desc)
+	}
 
 	if len(posFlagInfos) != 0 {
 		buffer.WriteString("\npositional options:\n")

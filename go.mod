@@ -1,4 +1,4 @@
-module github.com/hpifu/go-kit
+module github.com/yodeng/go-kit
 
 go 1.14
 
@@ -8,6 +8,7 @@ require (
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/gin-gonic/gin v1.4.0
 	github.com/hashicorp/consul/api v1.3.0
+	github.com/yodeng/go-kit v1.8.8
 	github.com/jehiah/go-strftime v0.0.0-20171201141054-1d33003b3869 // indirect
 	github.com/json-iterator/go v1.1.6
 	github.com/lestrrat-go/file-rotatelogs v2.2.0+incompatible

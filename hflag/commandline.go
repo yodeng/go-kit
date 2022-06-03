@@ -76,6 +76,11 @@ func AddPosFlag(name string, usage string, opts ...FlagOption) {
 	CommandLine.AddPosFlag(name, usage, opts...)
 }
 
+func AddDesc(des string) error {
+	CommandLine.desc = des
+	return nil
+}
+
 func Usage() string {
 	return CommandLine.Usage()
 }

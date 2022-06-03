@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/cast"
 
-	"github.com/hpifu/go-kit/hstr"
+	"github.com/yodeng/go-kit/hstr"
 )
 
 func MapStringInterfaceToStruct(rt reflect.Type, rv reflect.Value, dv map[string]interface{}) error {

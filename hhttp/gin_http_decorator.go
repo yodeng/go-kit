@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/hpifu/go-kit/hrand"
+	"github.com/yodeng/go-kit/hrand"
 	"github.com/sirupsen/logrus"
 )
 

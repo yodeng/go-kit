@@ -15,7 +15,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 
-	"github.com/hpifu/go-kit/hconf"
+	"github.com/yodeng/go-kit/hconf"
 )
 
 var hostname string

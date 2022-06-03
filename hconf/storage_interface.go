@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/hpifu/go-kit/href"
+	"github.com/yodeng/go-kit/href"
 )
 
 func NewInterfaceStorage(data interface{}) *InterfaceStorage {
